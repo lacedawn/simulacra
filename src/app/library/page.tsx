@@ -7,23 +7,23 @@ export default function LibraryPage() {
     <section>
       <PageHeader title="library" subtitle="books" />
 
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-3 sm:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
         {books.map((book) => (
           <div
             key={book.pdfFilename}
-            className="flex flex-col relative bg-box border border-border p-1.5 sm:p-2 h-full min-w-0 group hover:border-accent transition-colors"
+            className="flex flex-col relative bg-box border border-border p-1.5 sm:p-2.5 h-full min-w-0 group hover:border-accent transition-colors"
           >
-            <div className="relative w-full aspect-book mb-2 sm:mb-2.5 border border-border bg-[rgba(255,255,255,0.02)] overflow-hidden pointer-events-none z-10">
+            <div className="relative w-full aspect-book mb-2 sm:mb-3 border border-border bg-[rgba(255,255,255,0.02)] overflow-hidden pointer-events-none z-10">
               <Image
                 src={book.cover}
                 alt={`Cover page of ${book.title} by ${book.author}`}
                 fill
                 className="object-cover transition-none filter brightness-100 group-hover:brightness-110"
-                sizes="(max-width: 640px) 33vw, (max-width: 768px) 25vw, (max-width: 1024px) 20vw, 16vw"
+                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
               />
             </div>
-            <div className="flex flex-col gap-0.5 px-0.5 min-w-0 relative z-10">
-              <h2 className="text-[0.8rem] sm:text-[0.85rem] font-medium leading-[1.2] m-0 text-foreground break-words group-hover:text-accent line-clamp-2">
+            <div className="flex flex-col gap-1 px-0.5 min-w-0 relative z-10">
+              <h2 className="text-[0.85rem] sm:text-[0.9rem] font-medium leading-[1.3] m-0 text-foreground break-words group-hover:text-accent">
                 <a 
                   href={`/simulacra/books/${encodeURIComponent(book.pdfFilename)}`}
                   download
@@ -32,7 +32,7 @@ export default function LibraryPage() {
                   {book.title}
                 </a>
               </h2>
-              <p className="text-[0.7rem] sm:text-xs text-muted break-words m-0 leading-tight truncate">
+              <p className="text-[0.75rem] sm:text-[0.8rem] text-muted break-words m-0 leading-tight">
                 {book.author}
               </p>
             </div>
