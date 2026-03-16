@@ -34,7 +34,7 @@ export function DiscordCopyBtn({ handle }: DiscordCopyBtnProps) {
         type="button"
         onClick={() => copyToClipboard(handle)}
         className={cn(
-          "bg-transparent border-none text-accent font-mono text-left cursor-pointer p-0 lowercase text-base",
+          "bg-transparent border-none text-accent font-mono text-left cursor-pointer p-0 lowercase",
           "hover:underline hover:text-accent-hover hover:underline-offset-4",
           "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
         )}
