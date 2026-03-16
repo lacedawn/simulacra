@@ -23,7 +23,7 @@ export default function Home() {
 
           <div className="bg-box border border-border p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
             <h2 className="text-base sm:text-lg font-medium lowercase mb-0">links</h2>
-            <div className="flex flex-row flex-wrap md:flex-col gap-x-6 gap-y-2 md:gap-2 text-sm sm:text-base">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:text-base">
               <a href="https://x.com/0l3naa" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover hover:underline underline-offset-4 w-fit">twitter</a>
               <a href="https://www.instagram.com/0lacedawn" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover hover:underline underline-offset-4 w-fit">instagram</a>
               <a href="https://www.reddit.com/user/Puzzleheaded-Taro492/" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent-hover hover:underline underline-offset-4 w-fit">reddit</a>
@@ -68,7 +68,7 @@ export default function Home() {
 
       <div className="mt-2 mb-2 flex justify-center">
         <figure className="max-w-container-md text-center flex flex-col items-center">
-          <blockquote className="font-serif text-body-lg text-foreground opacity-90 leading-relaxed italic mb-6">
+          <blockquote className="font-serif font-normal text-body-lg text-foreground opacity-90 leading-relaxed italic mb-6">
             <p>Death is not an event of life. Death is not lived through.</p>
             <p className="mt-4">If by eternity is understood not endless temporal duration but timelessness, then he lives eternally who lives in the present.</p>
             <p className="mt-4">Our life is endless in the way that our visual field is without limit.</p>

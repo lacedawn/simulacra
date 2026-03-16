@@ -40,6 +40,7 @@ const config: Config = {
       fontFamily: {
         mono: ['var(--font-dm-mono)', 'DM Mono', 'JetBrains Mono', 'Courier New', 'monospace'],
         sans: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['var(--font-newsreader)', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },
       fontSize: {
         xs: "0.75rem",

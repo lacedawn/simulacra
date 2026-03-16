@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Mono } from "next/font/google";
+import { DM_Mono, Newsreader } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/nav";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,14 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   variable: "--font-dm-mono",
   display: "swap", // Prevents FOIT to ensure zero layout shift penalties
+});
+
+const newsreader = Newsreader({
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(dmMono.variable, "dark")}>
+    <html lang="en" className={cn(dmMono.variable, newsreader.variable, "dark")}>
       <body className="min-h-screen bg-background">
         <a
           href="#main-content"
