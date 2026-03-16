@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-color: #000000;
+  }
+  
+  html, body {
+    @apply bg-background text-foreground font-mono antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Structural typography normalizers */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium leading-heading mb-4 lowercase;
+  }
+  
+  /* Let prose (blogs) retain original casing */
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    @apply normal-case;
+  }
+  
+  hr {
+    @apply border-0 border-t border-border my-8;
+  }
+}
+
+@layer components {
+  /* Reading focused typography for prose */
+  .prose {
+    @apply text-md leading-body text-foreground;
+  }
+  .prose p {
+    @apply mb-10 text-justify hyphens-auto;
+  }
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply text-foreground mt-16 mb-8 font-medium leading-[1.3];
+  }
+  .prose h1, .prose h2 {
+    @apply text-xl;
+  }
+  .prose h2 {
+    @apply border-b border-border pb-2;
+  }
+  .prose h3 {
+    @apply text-lg;
+  }
+  .prose a {
+    @apply text-accent underline underline-offset-4 hover:text-accent-hover focus-visible:text-accent-hover;
+  }
+  .prose blockquote {
+    @apply font-serif italic border-l-2 border-accent pl-8 ml-0 mb-10 text-muted text-lg leading-[1.6];
+  }
+  .prose blockquote p {
+    @apply mb-4 text-left;
+  }
+  .prose blockquote p:last-child {
+    @apply mb-0;
+  }
+  .prose ul, .prose ol {
+    @apply mb-10 pl-8;
+  }
+  .prose li {
+    @apply mb-4;
+  }
+  .prose pre {
+    @apply bg-box border border-border p-8 overflow-x-auto mb-10 text-sm;
+  }
+  .prose code {
+    @apply bg-prose-code px-1.5 py-1 text-sm font-mono;
+  }
+  .prose pre code {
+    @apply bg-transparent p-0;
+  }
+  .prose hr {
+    @apply my-16 border-0 text-center text-muted tracking-tracking-section;
+  }
+  .prose hr::before {
+    content: '***';
+  }
+}
