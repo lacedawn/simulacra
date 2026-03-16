@@ -34,7 +34,7 @@
     @apply text-md leading-body text-foreground;
   }
   .prose p {
-    @apply mb-10 text-justify hyphens-auto;
+    @apply mb-10 text-left hyphens-auto;
   }
   .prose h1, .prose h2, .prose h3, .prose h4 {
     @apply text-foreground mt-16 mb-8 font-medium leading-[1.3];

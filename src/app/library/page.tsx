@@ -9,9 +9,11 @@ export default function LibraryPage() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
         {books.map((book) => (
-          <div
+          <a
             key={book.pdfFilename}
-            className="flex flex-col relative bg-box border border-border p-1.5 sm:p-2.5 h-full min-w-0 group hover:border-accent transition-colors"
+            href={`/simulacra/books/${encodeURIComponent(book.pdfFilename)}`}
+            download
+            className="flex flex-col relative bg-box border border-border p-1.5 sm:p-2.5 h-full min-w-0 group hover:border-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
           >
             <div className="relative w-full aspect-book mb-2 sm:mb-3 border border-border bg-[rgba(255,255,255,0.02)] overflow-hidden pointer-events-none z-10">
               <Image
@@ -24,19 +26,13 @@ export default function LibraryPage() {
             </div>
             <div className="flex flex-col gap-1 px-0.5 min-w-0 relative z-10">
               <h2 className="text-[0.85rem] sm:text-[0.9rem] font-medium leading-[1.3] m-0 text-foreground break-words group-hover:text-accent">
-                <a 
-                  href={`/simulacra/books/${encodeURIComponent(book.pdfFilename)}`}
-                  download
-                  className="before:absolute before:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
-                >
-                  {book.title}
-                </a>
+                {book.title}
               </h2>
               <p className="text-[0.75rem] sm:text-[0.8rem] text-muted break-words m-0 leading-tight">
                 {book.author}
               </p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
