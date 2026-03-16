@@ -69,14 +69,14 @@ export default function Home() {
       <div className="mt-2 mb-2 flex justify-center">
         <figure className="max-w-container-md text-center flex flex-col items-center">
           <blockquote className="font-serif text-body-lg text-foreground opacity-90 leading-relaxed italic mb-6">
-            <p>The sense of the world must lie outside the world. In the world everything is as it is and happens as it does happen. In it there is no value—and if there were, it would be of no value.</p>
-            <p className="mt-4">If there is a value which is of value, it must lie outside all happening and being-so. For all happening and being-so is accidental.</p>
-            <p className="mt-4">What makes it non-accidental cannot lie in the world, for otherwise this would again be accidental.<br />It must lie outside the world.</p>
+            <p>Death is not an event of life. Death is not lived through.</p>
+            <p className="mt-4">If by eternity is understood not endless temporal duration but timelessness, then he lives eternally who lives in the present.</p>
+            <p className="mt-4">Our life is endless in the way that our visual field is without limit.</p>
           </blockquote>
           <figcaption className="text-sm text-accent font-mono uppercase tracking-widest flex flex-col items-center gap-2 mt-2">
             Ludwig Wittgenstein
             <cite className="opacity-80 text-caption text-muted tracking-normal normal-case font-serif italic">
-              Tractatus Logico-Philosophicus 6.41
+              Tractatus Logico-Philosophicus 6.4311
             </cite>
           </figcaption>
         </figure>
