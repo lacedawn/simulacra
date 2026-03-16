@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <section className="flex flex-col gap-8">
       <h1 className="text-xl text-accent mb-0 font-medium lowercase">welcome</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-profile-layout gap-4 sm:gap-8 items-start">
-        
+
         {/* Left Column (Profile & Links) */}
         <div className="flex flex-col gap-4 sm:gap-8">
           <div className="w-profile sm:w-full max-w-[250px] md:max-w-full mx-auto md:mx-0 border border-border bg-box p-1 mb-2 sm:mb-0">
@@ -20,7 +20,7 @@ export default function Home() {
               priority
             />
           </div>
-          
+
           <div className="bg-box border border-border p-4 sm:p-6 flex flex-col gap-3 sm:gap-4">
             <h2 className="text-base sm:text-lg font-medium lowercase mb-0">links</h2>
             <div className="flex flex-row flex-wrap md:flex-col gap-x-6 gap-y-2 md:gap-2 text-sm sm:text-base">
@@ -37,7 +37,7 @@ export default function Home() {
           <div className="bg-box border border-border p-4 sm:p-6">
             <h2 className="text-base sm:text-lg font-medium lowercase mb-3 sm:mb-4">about me</h2>
             <p className="text-foreground leading-relaxed sm:leading-body text-sm sm:text-base text-justify sm:text-left">
-              thank you for visiting.. im a 17 years old trans girl from iraq who is interested in philosophy, linux and technology. I love messing around with stuff and making a new rice every week. one of my favorite hobbies is reading, I like to read philosophy and in particular post-modern french philosophy, one of my favorite philosophers is Gilles Deleuze.
+              thank you for visiting. im lena, a 17 years old high school student from iraq. im interested in philosophy, technology and sociology. one of my favorite hobbies is reading, currently im interested a lot in post-structuralist French philosophy and in particular the works of gilles deleuze and felix guattari. not as interested in novels but white nights has a soft spot in my heart
             </p>
           </div>
 
