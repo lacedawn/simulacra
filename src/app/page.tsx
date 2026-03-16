@@ -12,7 +12,7 @@ export default function Home() {
         <div className="flex flex-col gap-4 sm:gap-8">
           <div className="w-profile sm:w-full max-w-[250px] md:max-w-full mx-auto md:mx-0 border border-border bg-box p-1 mb-2 sm:mb-0">
             <Image
-              src="/upscale/maryy.png"
+              src="/simulacra/upscale/maryy.png"
               alt="Oléna's profile picture"
               width={250}
               height={333}

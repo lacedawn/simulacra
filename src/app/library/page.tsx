@@ -25,7 +25,7 @@ export default function LibraryPage() {
             <div className="flex flex-col gap-1 sm:gap-1 px-1 min-w-0 relative z-10">
               <h2 className="text-[0.95rem] sm:text-base font-medium leading-[1.25] sm:leading-[1.3] m-0 text-foreground break-words group-hover:text-accent">
                 <a 
-                  href={`/books/${encodeURIComponent(book.pdfFilename)}`}
+                  href={`/simulacra/books/${encodeURIComponent(book.pdfFilename)}`}
                   download
                   className="before:absolute before:inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 rounded-sm"
                 >
