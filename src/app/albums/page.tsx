@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/page-header";
 export default function AlbumsPage() {
   return (
     <section>
-      <PageHeader title="albums" subtitle="albums" />
+      <PageHeader title="albums" subtitle="music" />
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
         {albums.map((album) => (
