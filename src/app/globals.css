@@ -61,10 +61,10 @@
     @apply mb-0;
   }
   .prose ul {
-    @apply mb-10 pl-8 list-disc;
+    @apply mb-10 pl-8 list-disc marker:text-accent;
   }
   .prose ol {
-    @apply mb-10 pl-8 list-decimal;
+    @apply mb-10 pl-8 list-decimal marker:text-accent;
   }
   .prose li {
     @apply mb-4;
