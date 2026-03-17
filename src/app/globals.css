@@ -60,8 +60,11 @@
   .prose blockquote p:last-child {
     @apply mb-0;
   }
-  .prose ul, .prose ol {
-    @apply mb-10 pl-8;
+  .prose ul {
+    @apply mb-10 pl-8 list-disc;
+  }
+  .prose ol {
+    @apply mb-10 pl-8 list-decimal;
   }
   .prose li {
     @apply mb-4;
