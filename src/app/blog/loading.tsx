@@ -4,7 +4,10 @@ export default function Loading() {
   return (
     <section>
       <PageHeader title="blog" subtitle="..." />
-      <p className="text-muted text-sm animate-pulse">synchronizing...</p>
+      <p className="mono" style={{ marginTop: 12 }}>
+        synchronizing...
+      </p>
     </section>
   );
 }
+

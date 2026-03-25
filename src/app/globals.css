@@ -1,87 +1,171 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Eden document-style CSS.
+   Goal: white/black, high-density, semantic HTML, and classic link colors. */
 
-@layer base {
-  :root {
-    --bg-color: #000000;
-  }
-  
-  html, body {
-    @apply bg-background text-foreground font-mono antialiased;
-    font-size: 16px;
-    line-height: 1.6;
+:root {
+  --link-unvisited: #0000ee;
+  --link-visited: #551a8b;
+
+  --sans: Arial, Helvetica, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+
+  --content-max: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  color: #000000;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+a:link {
+  color: var(--link-unvisited);
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Accessibility helper */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.7em 0 0.25em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+p {
+  margin: 0.55em 0;
+}
+
+ul,
+ol {
+  margin: 0.5em 0;
+  padding-left: 1.25em;
+}
+
+li {
+  margin: 0.15em 0;
+}
+
+code,
+kbd,
+pre,
+.mono {
+  font-family: var(--mono);
+}
+
+.page-container {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 24px 44px 44px;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.site-header {
+  margin-bottom: 24px;
+}
+
+.main-nav {
+  font-size: 18px;
+  line-height: 1.2;
+  font-family: var(--sans);
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28%;
+  gap: 44px;
+  align-items: start;
+}
+
+.main-column {
+  min-width: 0;
+}
+
+.sidebar-column {
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .page-container {
+    padding: 14px 14px 40px;
   }
 
-  /* Structural typography normalizers */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-medium leading-heading mb-4 lowercase;
-  }
-  
-  /* Let prose (blogs) retain original casing */
-  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-    @apply normal-case;
-  }
-  
-  hr {
-    @apply border-0 border-t border-border my-8;
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 }
 
-@layer components {
-  /* Reading focused typography for prose */
-  .prose {
-    @apply text-md leading-body text-foreground;
-  }
-  .prose p {
-    @apply mb-10 text-left;
-  }
-  .prose h1, .prose h2, .prose h3, .prose h4 {
-    @apply text-foreground mt-16 mb-8 font-medium leading-[1.3];
-  }
-  .prose h1, .prose h2 {
-    @apply text-xl;
-  }
-  .prose h2 {
-    @apply border-b border-border pb-2;
-  }
-  .prose h3 {
-    @apply text-lg;
-  }
-  .prose a {
-    @apply text-accent underline underline-offset-4 hover:text-accent-hover focus-visible:text-accent-hover;
-  }
-  .prose blockquote {
-    @apply font-serif italic border-l-2 border-accent pl-8 ml-0 mb-10 text-muted text-lg leading-[1.6];
-  }
-  .prose blockquote p {
-    @apply mb-4 text-left;
-  }
-  .prose blockquote p:last-child {
-    @apply mb-0;
-  }
-  .prose ul {
-    @apply mb-10 pl-8 list-disc marker:text-accent;
-  }
-  .prose ol {
-    @apply mb-10 pl-8 list-decimal marker:text-accent;
-  }
-  .prose li {
-    @apply mb-4;
-  }
-  .prose pre {
-    @apply bg-box border border-border p-8 overflow-x-auto mb-10 text-sm;
-  }
-  .prose code {
-    @apply bg-prose-code px-1.5 py-1 text-sm font-mono;
-  }
-  .prose pre code {
-    @apply bg-transparent p-0;
-  }
-  .prose hr {
-    @apply my-16 border-0 text-center text-muted tracking-tracking-section;
-  }
-  .prose hr::before {
-    content: '***';
-  }
+.prose p {
+  margin: 0.6em 0;
 }
+
+.prose pre {
+  overflow-x: auto;
+  padding: 12px 14px;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+.prose blockquote {
+  margin: 1em 0;
+  padding-left: 16px;
+  border-left: 3px solid #000;
+  font-style: italic;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+
+

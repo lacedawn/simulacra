@@ -1,13 +1,25 @@
 interface PageHeaderProps {
   title: string;
   subtitle: string;
+  id?: string;
 }
 
-export function PageHeader({ title, subtitle }: PageHeaderProps) {
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .trim()
+    .replace(/['"]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+export function PageHeader({ title, subtitle, id }: PageHeaderProps) {
+  const headingId = id ?? slugify(title);
+
   return (
-    <header className="mb-8 border-b border-border pb-4">
-      <h1 className="text-2xl text-accent mb-2 font-medium">{title}</h1>
-      <p className="text-muted text-sm italic">{subtitle}</p>
+    <header style={{ borderBottom: "1px solid #000", paddingBottom: 10, marginBottom: 18 }}>
+      <h1 id={headingId}>{title}</h1>
+      <p style={{ marginTop: 6, fontStyle: "italic" }}>{subtitle}</p>
     </header>
   );
 }
