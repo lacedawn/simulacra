@@ -7,6 +7,7 @@ export const PostMetadataSchema = z.object({
   date: z.string().min(1),
   description: z.string().optional(),
   readingTime: z.string(),
+  thumbnail: z.string().optional(),
 });
 
 export const PostSchema = PostMetadataSchema.extend({

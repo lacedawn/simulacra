@@ -15,6 +15,13 @@ While Walsh himself is not consciously doing Aristotelian metaphysics, obviously
 
 Wittgenstein's philosophy offers perhaps one of the most useful linguistic frameworks to identify what went wrong in Walsh's project and why it seems to be undefeatable. Though, obviously, it has its critics. Some theorists argue that the theory of family resemblance relocates vagueness instead of solving it. Claiming that words have a cluster of features raises the question which of these features are actually relevant? Which is a fair point, but even granting that Wittgenstein may not have fully solved the problem of meaning, his philosophy is considerably more adequate to how language actually functions than the essentialist demand for a fixed definition. And it's the essentialist demand, not Wittgenstein, that breaks down when it's met with the actual diversity of language usage.
 
+<figure className="w-80 mx-auto my-8 flex flex-col items-center text-center">
+  <div className="photo-frame w-full">
+    <img src="https://substackcdn.com/image/fetch/$s_!bk24!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1f816f44-7a0f-469e-8430-e632de9e6ff9_4984x7286.jpeg" alt="Ludwig Wittgenstein, 1930" />
+  </div>
+  <figcaption className="text-sm text-muted mt-3 italic">Ludwig Wittgenstein, 1930</figcaption>
+</figure>
+
 For Matt Walsh, the word "woman" is a pointer to a biological reality and any usage that deviates from that pointer is simply incorrect, a lie. Wittgenstein's intervention shifts this framework of language from a *reference* (what a word is pointing to) to *use* (how the word functions in social interactions). Wittgenstein argues that philosophical problems arise when "language goes on holiday" (PI §38), meaning when we detach words from their everyday function and try to analyze them. Walsh's documentary is a prime example of language going on holiday, he detaches the word "woman" from its natural habitat, social interactions, and analyzes it on a metaphysical essentialist level, demanding its "essence".
 
 Walsh's argument is not messy, it is highly structured and relies on presuppositions about how language functions and this is the key to his argument, that is the requirement for **necessary and sufficient conditions**.

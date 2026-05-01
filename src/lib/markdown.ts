@@ -18,6 +18,19 @@ function calculateReadingTime(text: string): string {
   return `${Math.max(1, Math.ceil(noOfWords / wordsPerMinute))} min read`;
 }
 
+function extractFirstImage(content: string): string | undefined {
+  const imgRegex = /<img[^>]+src=["']([^"']+)["']/;
+  const mdImgRegex = /!\[.*?\]\((.*?)\)/;
+  
+  const imgMatch = content.match(imgRegex);
+  if (imgMatch && imgMatch[1]) return imgMatch[1];
+  
+  const mdImgMatch = content.match(mdImgRegex);
+  if (mdImgMatch && mdImgMatch[1]) return mdImgMatch[1];
+  
+  return undefined;
+}
+
 const VALID_EXTS = new Set(['.md', '.mdx']);
 
 export const getPosts = cache(async (type: PostType): Promise<PostMetadata[]> => {
@@ -48,6 +61,7 @@ export const getPosts = cache(async (type: PostType): Promise<PostMetadata[]> =>
         date: data.date || 'Unknown Date',
         description: data.description,
         readingTime: calculateReadingTime(content), 
+        thumbnail: extractFirstImage(content),
       });
     });
 
@@ -87,5 +101,6 @@ export const getPostBySlug = cache(async (type: PostType, slug: string): Promise
     description: data.description,
     content,
     readingTime: calculateReadingTime(content),
+    thumbnail: extractFirstImage(content),
   });
 });
