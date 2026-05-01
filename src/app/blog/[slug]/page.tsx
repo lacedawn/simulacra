@@ -46,20 +46,21 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   // The 'prose' generic class handles markdown cascading safely from globals.css without destroying global scope
   return (
     <article className="max-w-container-sm mx-auto">
-      <header className="mb-16 border-b border-border pb-8">
+      <header className="mb-16 pb-8" style={{ borderBottom: '1px dashed rgba(120, 80, 90, 0.10)' }}>
         <Link 
           href="/blog" 
-          className="inline-block text-sm text-muted mb-12 hover:text-accent focus-visible:text-accent focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-accent"
+          className="inline-block text-xs text-muted mb-12 hover:text-accent focus-visible:text-accent focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-accent font-mono font-light"
+          style={{ textDecorationStyle: 'dotted' }}
         >
           {"<-"} back to blog
         </Link>
-        <h1 className="text-2xl text-foreground mb-4 leading-heading font-medium normal-case">{post.title}</h1>
+        <h1 className="text-2xl text-foreground mb-4 leading-heading font-display font-normal normal-case tracking-wide">{post.title}</h1>
         {post.description && (
-          <p className="text-md text-muted mb-8 italic">{post.description}</p>
+          <p className="text-md text-muted mb-8 italic font-serif">{post.description}</p>
         )}
-        <div className="flex items-center gap-4 text-sm text-accent tracking-widest">
+        <div className="flex items-center gap-4 text-xs text-accent tracking-widest font-mono font-light">
           <span>{post.date}</span>
-          <span className="opacity-50" aria-hidden="true">•</span>
+          <span className="opacity-40" aria-hidden="true">·</span>
           <span>{post.readingTime}</span>
         </div>
       </header>

@@ -5,9 +5,9 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle }: PageHeaderProps) {
   return (
-    <header className="mb-8 border-b border-border pb-4">
-      <h1 className="text-2xl text-accent mb-2 font-medium">{title}</h1>
-      <p className="text-muted text-sm italic">{subtitle}</p>
+    <header className="mb-8 pb-4" style={{ borderBottom: '1px dashed rgba(120, 80, 90, 0.10)' }}>
+      <h1 className="text-2xl text-accent mb-2 font-display font-normal tracking-wide">{title}</h1>
+      <p className="text-muted text-xs italic font-serif">{subtitle}</p>
     </header>
   );
 }

@@ -10,18 +10,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--bg-color, #000000)",
+        background: "var(--bg-color, #f7f5f2)",
         foreground: {
-          DEFAULT: "var(--fg-color, #e0e0e0)",
-          muted: "var(--fg-muted, #a3a3a3)",
+          DEFAULT: "var(--fg-color, #1a1918)",
+          muted: "var(--fg-muted, #595653)",
         },
-        muted: "var(--fg-muted, #a3a3a3)",
+        muted: "var(--fg-muted, #595653)",
         accent: {
-          DEFAULT: "var(--accent-color, #bda1c9)",
-          hover: "var(--accent-hover, #e5ccf0)",
+          DEFAULT: "var(--accent-color, #8c6a71)",
+          hover: "var(--accent-hover, #5e464b)",
         },
-        border: "var(--border-color, rgba(255, 255, 255, 0.07))",
-        box: "var(--box-color, #0d0d0d)",
+        border: "var(--border-color, rgba(26, 25, 24, 0.15))",
+        box: "var(--box-color, transparent)",
       },
       maxWidth: {
         "container-sm": "650px",
@@ -29,36 +29,39 @@ const config: Config = {
         "container-lg": "800px",
       },
       width: {
-        "profile": "220px",
+        "profile": "360px",
       },
       gridTemplateColumns: {
-        "profile-layout": "clamp(250px,30vw,320px) 1fr",
+        "profile-layout": "clamp(300px,40vw,420px) 1fr",
       },
       aspectRatio: {
         "book": "2 / 3",
       },
       fontFamily: {
-        mono: ['var(--font-dm-mono)', 'DM Mono', 'JetBrains Mono', 'Courier New', 'monospace'],
-        sans: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['var(--font-newsreader)', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+        mono: ['var(--font-eb-garamond)', 'serif'],
+        sans: ['var(--font-eb-garamond)', 'serif'],
+        serif: ['var(--font-eb-garamond)', 'serif'],
+        display: ['var(--font-eb-garamond)', 'serif'],
       },
       fontSize: {
-        xs: "0.75rem",
-        sm: "0.85rem",
-        base: "1rem",
-        md: "1.125rem",
-        lg: "1.25rem",
-        xl: "1.5rem",
-        "2xl": "2rem",
-        "body-lg": "1.15rem",
-        "caption": "13px",
+        xs: "0.8rem",
+        sm: "0.9rem",
+        base: "1.0rem",
+        md: "1.0625rem",
+        lg: "1.125rem",
+        xl: "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "body-lg": "1.125rem",
+        "caption": "0.85rem",
       },
       letterSpacing: {
+        "wide": "0.05em",
         "widest": "0.1em",
-        "tracking-section": "0.5em"
+        "tracking-section": "0.2em"
       },
       backgroundColor: {
-        "prose-code": "rgba(255, 255, 255, 0.05)",
+        "prose-code": "transparent",
       },
       lineHeight: {
         body: "1.6",

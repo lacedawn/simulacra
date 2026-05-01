@@ -4,84 +4,146 @@
 
 @layer base {
   :root {
-    --bg-color: #000000;
+    --bg-color: #f7f5f2; /* Lighter off-white for much better contrast */
+    --fg-color: #1a1918; /* Near black, but warm, for maximum readability */
+    --fg-muted: #595653; /* Darker muted text */
+    --accent-color: #8c6a71; /* Stronger dusty rose */
+    --accent-hover: #5e464b;
+    --border-color: #c9c3bb; /* Consistent warm gray hairline border */
+    --box-color: transparent;
   }
   
   html, body {
-    @apply bg-background text-foreground font-mono antialiased;
-    font-size: 16px;
-    line-height: 1.6;
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-eb-garamond), serif;
+    font-size: 18px; /* Slightly larger base size since Garamond sets small */
+    font-weight: 400; /* Regular weight, not light */
+    line-height: 1.6; /* Tighter line height for better reading */
   }
 
-  /* Structural typography normalizers */
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-medium leading-heading mb-4 lowercase;
+  ::selection {
+    background: rgba(140, 106, 113, 0.15);
+    color: #1a1918;
   }
-  
-  /* Let prose (blogs) retain original casing */
-  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-    @apply normal-case;
+  ::-moz-selection {
+    background: rgba(140, 106, 113, 0.15);
+    color: #1a1918;
+  }
+
+  a, button, [role="button"], input, select, textarea, label {
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal mb-4;
+    letter-spacing: 0.02em; /* Less extreme tracking */
   }
   
   hr {
-    @apply border-0 border-t border-border my-8;
+    @apply border-0 border-t my-8;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-color);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 0;
   }
 }
 
 @layer components {
-  /* Reading focused typography for prose */
   .prose {
-    @apply text-md leading-body text-foreground;
+    @apply text-lg leading-relaxed text-foreground;
   }
   .prose p {
-    @apply mb-10 text-left;
+    @apply mb-6 text-left;
   }
   .prose h1, .prose h2, .prose h3, .prose h4 {
-    @apply text-foreground mt-16 mb-8 font-medium leading-[1.3];
+    @apply text-foreground mt-8 mb-4 font-serif font-normal tracking-wide;
   }
   .prose h1, .prose h2 {
-    @apply text-xl;
-  }
-  .prose h2 {
-    @apply border-b border-border pb-2;
+    @apply text-xl pb-2 border-b border-solid border-border;
   }
   .prose h3 {
     @apply text-lg;
   }
   .prose a {
     @apply text-accent underline underline-offset-4 hover:text-accent-hover focus-visible:text-accent-hover;
+    text-decoration-style: solid;
   }
   .prose blockquote {
-    @apply font-serif italic border-l-2 border-accent pl-8 ml-0 mb-10 text-muted text-lg leading-[1.6];
+    @apply font-serif italic ml-0 mb-6 text-muted text-lg leading-relaxed;
+    border-left: 1px solid var(--border-color);
+    padding-left: 1.5rem;
   }
-  .prose blockquote p {
-    @apply mb-4 text-left;
-  }
-  .prose blockquote p:last-child {
-    @apply mb-0;
-  }
-  .prose ul {
-    @apply mb-10 pl-8 list-disc marker:text-accent;
-  }
-  .prose ol {
-    @apply mb-10 pl-8 list-decimal marker:text-accent;
+  .prose ul, .prose ol {
+    @apply mb-6 pl-6 list-none;
   }
   .prose li {
-    @apply mb-4;
+    @apply mb-2 relative;
+  }
+  .prose li::before {
+    content: '-';
+    position: absolute;
+    left: -1rem;
+    color: var(--accent-color);
   }
   .prose pre {
-    @apply bg-box border border-border p-8 overflow-x-auto mb-10 text-sm;
+    @apply bg-transparent p-4 overflow-x-auto mb-6 border border-solid border-border text-sm;
+    border-radius: 0;
   }
   .prose code {
-    @apply bg-prose-code px-1.5 py-1 text-sm font-mono;
+    @apply px-1 py-0.5 text-sm bg-transparent border border-solid border-border;
+    border-radius: 0;
   }
   .prose pre code {
-    @apply bg-transparent p-0;
+    @apply border-none p-0;
   }
-  .prose hr {
-    @apply my-16 border-0 text-center text-muted tracking-tracking-section;
+
+  .photo-frame {
+    padding: 0;
+    border: 1px solid var(--border-color);
+    background: transparent;
   }
-  .prose hr::before {
-    content: '***';
+  .photo-frame img {
+    filter: grayscale(100%) contrast(0.95);
+    display: block;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .old-box {
+    border: 1px solid var(--border-color);
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .ornament {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: var(--border-color);
+  }
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    width: 3rem;
+    height: 1px;
+    background: currentColor;
   }
 }

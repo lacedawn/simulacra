@@ -34,9 +34,9 @@ export function DiscordCopyBtn({ handle }: DiscordCopyBtnProps) {
         type="button"
         onClick={() => copyToClipboard(handle)}
         className={cn(
-          "bg-transparent border-none text-accent font-mono text-left cursor-pointer p-0 lowercase",
-          "hover:underline hover:text-accent-hover hover:underline-offset-4",
-          "focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+          "bg-transparent border-none text-inherit font-inherit cursor-pointer p-0 lowercase",
+          "hover:underline",
+          "focus-visible:outline-none rounded-none transition-colors"
         )}
         aria-label="Copy Discord tag"
       >
@@ -46,14 +46,14 @@ export function DiscordCopyBtn({ handle }: DiscordCopyBtnProps) {
       {copied && (
         <div 
           className={cn(
-            "fixed bottom-8 right-8 bg-box border border-border px-6 py-4 flex items-center gap-4 z-50",
+            "fixed bottom-8 right-8 px-6 py-4 flex items-center gap-3 z-50 bg-background border border-solid border-border",
             "animate-in slide-in-from-bottom-5 fade-in duration-200"
           )}
           role="status" 
           aria-live="polite"
         >
-          <span aria-hidden="true" className="text-accent">✿</span>
-          <span>tag copied!</span>
+          <span aria-hidden="true" className="text-accent opacity-60 text-xs">■</span>
+          <span className="font-serif font-normal lowercase tracking-wide text-base">tag copied</span>
         </div>
       )}
     </>
