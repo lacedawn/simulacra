@@ -4,7 +4,6 @@ import { DiscordCopyBtn } from "@/components/discord-copy-btn";
 export default function Home() {
   return (
     <section className="flex flex-col gap-4">
-      <h1 className="text-[0.85rem] text-muted mb-0 font-serif font-light italic lowercase tracking-wide">welcome</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-[minmax(300px,50%)_1fr] gap-8 md:gap-10 items-center">
 

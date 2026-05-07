@@ -7,7 +7,7 @@ export default async function BlogPage() {
 
   return (
     <section>
-      <PageHeader title="blog" subtitle="writings" />
+      <PageHeader title="blog" />
 
       {posts.length === 0 ? (
         <p className="text-muted font-light">No posts found.</p>
