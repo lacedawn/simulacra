@@ -6,7 +6,7 @@ export default function Home() {
     <section className="flex flex-col gap-4">
       <h1 className="text-[0.85rem] text-muted mb-0 font-serif font-light italic lowercase tracking-wide">welcome</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(300px,50%)_1fr] gap-8 md:gap-10 items-start">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(300px,50%)_1fr] gap-8 md:gap-10 items-center">
 
         {/* Left Column (Profile) */}
         <div className="flex flex-col w-full">
@@ -23,8 +23,8 @@ export default function Home() {
 
         {/* Right Column (About) */}
         <div className="flex flex-col">
-          <p className="text-foreground leading-relaxed text-base text-left font-normal m-0">
-            thank you for visiting. i am Lena, a 17 year old high school student from Iraq. i am interested in philosophy, technology and sociology. one of my favorite hobbies is reading, currently i am interested a lot in post-structuralist French philosophy and in particular the works of Gilles Deleuze and Félix Guattari. not as interested in novels but white nights has a soft spot in my heart.
+          <p className="text-foreground leading-loose tracking-wide text-lg text-left font-normal m-0">
+            i am lena, a 17 years old high school student from iraq. i love <a href="https://last.fm/user/leno727" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80 transition-opacity">music</a> and <a href="https://letterboxd.com/lacedawn/" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80 transition-opacity">movies</a>. i also like to read.
           </p>
         </div>
       </div>
