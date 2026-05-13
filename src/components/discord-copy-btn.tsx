@@ -36,7 +36,7 @@ export function DiscordCopyBtn({ handle }: DiscordCopyBtnProps) {
         className={cn(
           "bg-transparent border-none text-inherit font-inherit cursor-pointer p-0 lowercase",
           "hover:underline",
-          "focus-visible:outline-none rounded-none transition-colors"
+          "focus-visible:outline-none focus-visible:text-accent focus-visible:underline rounded-none transition-colors"
         )}
         aria-label="Copy Discord tag"
       >

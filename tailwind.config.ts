@@ -39,8 +39,8 @@ const config: Config = {
         "book": "2 / 3",
       },
       fontFamily: {
-        mono: ['var(--font-eb-garamond)', 'serif'],
-        sans: ['var(--font-eb-garamond)', 'serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         serif: ['var(--font-eb-garamond)', 'serif'],
         display: ['var(--font-eb-garamond)', 'serif'],
       },

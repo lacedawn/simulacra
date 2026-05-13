@@ -13,7 +13,7 @@ const ebGaramond = EB_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://essence.simulacra.com"),
-  title: "essence.",
+  title: "lacedawn",
   description: "lacedawn",
 };
 
