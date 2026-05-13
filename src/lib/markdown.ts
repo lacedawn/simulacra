@@ -4,12 +4,7 @@ import matter from 'gray-matter';
 import { cache } from 'react';
 import { PostSchema, PostMetadataSchema, type Post, type PostMetadata } from "./schemas";
 
-type PostType = 'writing' | 'blog';
-
-const getDirectory = (type: PostType) => {
-  const dir = type === 'writing' ? 'posts' : 'blog-posts';
-  return path.join(process.cwd(), dir);
-};
+const BLOG_DIR = path.join(process.cwd(), 'blog-posts');
 
 function calculateReadingTime(text: string): string {
   const wordsPerMinute = 200;
@@ -33,15 +28,15 @@ function extractFirstImage(content: string): string | undefined {
 
 const VALID_EXTS = new Set(['.md', '.mdx']);
 
-export const getPosts = cache(async (type: PostType): Promise<PostMetadata[]> => {
-  const directory = getDirectory(type);
-  
+export const getPosts = cache(async (): Promise<PostMetadata[]> => {
   let fileNames: string[];
   try {
-    fileNames = await fs.promises.readdir(directory);
+    fileNames = await fs.promises.readdir(BLOG_DIR);
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-      console.warn(`[System] Missing directory: ${directory}. Returning empty posts list.`);
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn(`[System] Missing directory: ${BLOG_DIR}. Returning empty posts list.`);
+      }
       return [];
     }
     throw error;
@@ -51,7 +46,7 @@ export const getPosts = cache(async (type: PostType): Promise<PostMetadata[]> =>
     .filter(fileName => VALID_EXTS.has(path.extname(fileName)))
     .map(async (fileName) => {
       const slug = fileName.replace(/\.mdx?$/, '');
-      const fullPath = path.join(directory, fileName);
+      const fullPath = path.join(BLOG_DIR, fileName);
       const fileContents = await fs.promises.readFile(fullPath, 'utf8');
       
       const { data, content } = matter(fileContents);
@@ -76,10 +71,9 @@ export const getPosts = cache(async (type: PostType): Promise<PostMetadata[]> =>
   });
 });
 
-export const getPostBySlug = cache(async (type: PostType, slug: string): Promise<Post | null> => {
-  const directory = getDirectory(type);
-  const mdPath = path.join(directory, `${slug}.md`);
-  const mdxPath = path.join(directory, `${slug}.mdx`);
+export const getPostBySlug = cache(async (slug: string): Promise<Post | null> => {
+  const mdPath = path.join(BLOG_DIR, `${slug}.md`);
+  const mdxPath = path.join(BLOG_DIR, `${slug}.mdx`);
   
   let fileContents: string;
 

@@ -18,13 +18,18 @@ export function DiscordCopyBtn({ handle }: DiscordCopyBtnProps) {
 
   const copyToClipboard = async (text: string) => {
     try {
-      if (!navigator.clipboard?.writeText) {
-        throw new Error("Clipboard API unsupported securely.");
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        setCopied(true);
+      } else {
+        // Fallback for insecure contexts or older browsers
+        window.prompt("Copy this Discord tag:", text);
       }
-      await navigator.clipboard.writeText(text);
-      setCopied(true);
     } catch (err) {
-      console.error("Failed to copy safely to clipboard: ", err);
+      if (process.env.NODE_ENV !== 'production') {
+        console.error("Failed to copy to clipboard: ", err);
+      }
+      window.prompt("Copy this Discord tag:", text);
     }
   };
 

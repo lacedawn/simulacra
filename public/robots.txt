@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lacedawn.github.io/simulacra/sitemap.xml

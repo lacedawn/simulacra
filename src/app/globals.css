@@ -16,28 +16,24 @@
   html, body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-eb-garamond), serif;
-    font-size: 18px; /* Slightly larger base size since Garamond sets small */
+    font-size: 112.5%; /* 18px at default 16px base — respects user font-size preferences */
     font-weight: 400; /* Regular weight, not light */
-    line-height: 1.6; /* Tighter line height for better reading */
+    line-height: 1.6;
   }
 
   ::selection {
     background: rgba(140, 106, 113, 0.15);
     color: #1a1918;
   }
-  ::-moz-selection {
-    background: rgba(140, 106, 113, 0.15);
-    color: #1a1918;
-  }
 
-  a, button, [role="button"], input, select, textarea, label {
+  a, button, [role="button"], label {
     cursor: pointer;
     border-radius: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif font-normal mb-4;
-    letter-spacing: 0.02em; /* Less extreme tracking */
+    letter-spacing: 0.02em;
   }
   
   hr {
@@ -91,16 +87,25 @@
     padding-left: 1.5rem;
   }
   .prose ul, .prose ol {
-    @apply mb-6 pl-6 list-none;
+    @apply mb-6 pl-6;
   }
-  .prose li {
+  .prose ul {
+    @apply list-none;
+  }
+  .prose ol {
+    @apply list-decimal;
+  }
+  .prose ul li {
     @apply mb-2 relative;
   }
-  .prose li::before {
+  .prose ul li::before {
     content: '-';
     position: absolute;
     left: -1rem;
     color: var(--accent-color);
+  }
+  .prose ol li {
+    @apply mb-2;
   }
   .prose pre {
     @apply bg-transparent p-4 overflow-x-auto mb-6 border border-solid border-border text-sm;
@@ -126,10 +131,15 @@
     border-radius: 0;
   }
 
-  .old-box {
+  .bordered-box {
     border: 1px solid var(--border-color);
     background: transparent;
     border-radius: 0;
+  }
+
+  .section-divider {
+    @apply pb-4 mb-8;
+    border-bottom: 1px dashed rgba(120, 80, 90, 0.10);
   }
 
   .ornament {

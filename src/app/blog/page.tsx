@@ -2,10 +2,11 @@ import Link from "next/link";
 import { getPosts } from "@/lib/markdown";
 
 export default async function BlogPage() {
-  const posts = await getPosts("blog");
+  const posts = await getPosts();
 
   return (
     <div>
+      <h1 className="sr-only">Blog</h1>
 
       {posts.length === 0 ? (
         <p className="text-muted font-light">No posts found.</p>
@@ -15,7 +16,7 @@ export default async function BlogPage() {
             <li key={post.slug} className="relative group flex flex-col sm:flex-row gap-6 sm:items-start">
               {post.thumbnail && (
                 <div className="shrink-0 w-full sm:w-32 photo-frame">
-                  <img src={post.thumbnail} alt="" className="object-cover aspect-video sm:aspect-square" />
+                  <img src={post.thumbnail} alt={post.title} className="object-cover aspect-video sm:aspect-square" loading="lazy" />
                 </div>
               )}
               <div className="flex-1">

@@ -30,7 +30,7 @@ export function Nav() {
         </ul>
         
         <ul className="flex items-center flex-wrap justify-center text-sm text-muted opacity-60 font-serif lowercase m-0 p-0 list-none">
-          {SOCIAL_LINKS.map((link) => (
+          {SOCIAL_LINKS.map((link, index) => (
             <li key={link.text} className="flex items-center">
               <a href={link.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
                 {link.text}

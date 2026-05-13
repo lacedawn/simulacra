@@ -11,7 +11,7 @@ A heterosexual man is a man who happened to be heterosexual while a homosexual o
 
 <figure className="w-80 mx-auto my-10 flex flex-col items-center">
   <div className="photo-frame w-full">
-    <img src="https://substackcdn.com/image/fetch/$s_!pbEp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F08a3be36-8f94-4a55-8785-89ef505b80c5_640x1024.jpeg" alt="Claude Cahun, “Self-portrait,” 1927" />
+    <img src="/simulacra/pics/claude.jpg" alt="Claude Cahun, “Self-portrait,” 1927" width="640" height="1024" loading="lazy" />
   </div>
   <figcaption className="text-sm text-muted mt-3 italic">Claude Cahun, “Self-portrait,” 1927</figcaption>
 </figure>

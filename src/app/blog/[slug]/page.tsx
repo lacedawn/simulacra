@@ -4,8 +4,10 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
 import { Metadata } from "next";
 
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
+
 export async function generateStaticParams() {
-  const posts = await getPosts("blog");
+  const posts = await getPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -15,7 +17,7 @@ export async function generateMetadata(
   props: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
   const params = await props.params;
-  const post = await getPostBySlug("blog", params.slug);
+  const post = await getPostBySlug(params.slug);
   
   if (!post) return { title: "Not Found" };
 
@@ -37,7 +39,7 @@ export async function generateMetadata(
 
 export default async function BlogPostPage(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
-  const post = await getPostBySlug("blog", params.slug);
+  const post = await getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
@@ -46,13 +48,13 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   // The 'prose' generic class handles markdown cascading safely from globals.css without destroying global scope
   return (
     <article className="max-w-container-sm mx-auto">
-      <header className="mb-16 pb-8" style={{ borderBottom: '1px dashed rgba(120, 80, 90, 0.10)' }}>
+      <header className="section-divider mb-16 pb-8">
         <Link 
           href="/blog" 
           className="inline-block text-xs text-muted mb-12 hover:text-accent focus-visible:text-accent focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-accent font-mono font-light"
           style={{ textDecorationStyle: 'dotted' }}
         >
-          {"<-"} back to blog
+          <span aria-hidden="true">←</span> back to blog
         </Link>
         <h1 className="text-2xl text-foreground mb-4 leading-heading font-display font-normal normal-case tracking-wide">{post.title}</h1>
         {post.description && (
@@ -66,8 +68,39 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       </header>
 
       <div className="prose">
-        <MDXRemote source={post.content} />
+        <MDXRemote 
+          source={post.content} 
+          options={{
+            mdxOptions: {
+              rehypePlugins: [
+                [
+                  rehypeSanitize,
+                  {
+                    ...defaultSchema,
+                    tagNames: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'em', 'strong', 'blockquote', 'ul', 'ol', 'li', 'code', 'pre', 'hr', 'br', 'span', 'div', 'figure', 'figcaption'],
+                    attributes: {
+                      a: ['href', 'title', 'target', 'rel'],
+                      img: ['src', 'alt', 'width', 'height', 'loading'],
+                      '*': ['className']
+                    },
+                    strip: ['script']
+                  }
+                ]
+              ]
+            }
+          }}
+        />
       </div>
+
+      <footer className="mt-16 pt-8 border-t border-solid border-border">
+        <Link 
+          href="/blog" 
+          className="inline-block text-xs text-muted hover:text-accent focus-visible:text-accent focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-accent font-mono font-light"
+          style={{ textDecorationStyle: 'dotted' }}
+        >
+          <span aria-hidden="true">←</span> back to blog
+        </Link>
+      </footer>
     </article>
   );
 }

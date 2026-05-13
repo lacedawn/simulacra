@@ -12,9 +12,20 @@ const ebGaramond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://essence.simulacra.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://lacedawn.github.io"),
   title: "lacedawn",
-  description: "lacedawn",
+  description: "lebonbon",
+  openGraph: {
+    type: "website",
+    title: "lacedawn",
+    description: "lebonbon",
+    siteName: "lacedawn",
+  },
+  twitter: {
+    card: "summary",
+    title: "lacedawn",
+    description: "lebonbon",
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={ebGaramond.variable}>
+      <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className="min-h-screen bg-background text-foreground">
         <a
           href="#main-content"

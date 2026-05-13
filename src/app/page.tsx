@@ -3,14 +3,15 @@ import Image from "next/image";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center gap-8 mt-4">
+      <h1 className="sr-only">lacedawn</h1>
 
       {/* Photo & Credit */}
       <div className="flex flex-col items-center w-full max-w-[450px]">
         <Image
           src="/simulacra/pics/cindyy.jpg"
           alt="Cindy Sherman – Untitled Film Still #21, 1978"
-          width={800}
-          height={800}
+          width={450}
+          height={450}
           className="w-full h-auto block grayscale object-cover border border-solid border-[#c9c3bb]"
           priority
         />

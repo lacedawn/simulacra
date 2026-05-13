@@ -15,7 +15,7 @@ export default function ErrorBoundary({
   }, [error]);
 
   return (
-    <div className="old-box p-6 flex flex-col items-start gap-4">
+    <div className="bordered-box p-6 flex flex-col items-start gap-4">
       <p className="text-foreground font-light">something dissolved.</p>
       <button 
         type="button"
