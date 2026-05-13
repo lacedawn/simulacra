@@ -72,11 +72,11 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
           source={post.content} 
           components={{
             img: (props) => (
-              <span className="w-80 mx-auto my-10 flex flex-col items-center block">
-                <span className="photo-frame w-full block">
-                  <img src={props.src} alt={props.alt} loading="lazy" width={640} height={1024} />
+              <span className="block w-full max-w-[450px] mx-auto my-12">
+                <span className="photo-frame block w-full">
+                  <img src={props.src} alt={props.alt} loading="lazy" className="w-full h-auto block m-0" />
                 </span>
-                {props.alt && <span className="text-sm text-muted mt-3 italic text-center block">{props.alt}</span>}
+                {props.alt && <span className="block text-sm text-muted mt-4 italic text-center w-full">{props.alt}</span>}
               </span>
             )
           }}
