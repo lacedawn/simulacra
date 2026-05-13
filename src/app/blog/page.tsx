@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { getPosts } from "@/lib/markdown";
-import { PageHeader } from "@/components/page-header";
 
 export default async function BlogPage() {
   const posts = await getPosts("blog");
 
   return (
-    <section>
-      <PageHeader title="blog" />
+    <div>
 
       {posts.length === 0 ? (
         <p className="text-muted font-light">No posts found.</p>
@@ -45,6 +43,6 @@ export default async function BlogPage() {
           ))}
         </ul>
       )}
-    </section>
+    </div>
   );
 }
