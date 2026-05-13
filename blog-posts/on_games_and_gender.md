@@ -1,7 +1,7 @@
 ---
 title: "On Games and Gender"
 date: "2026-02-19"
-description: "Matt Walsh, Wittgenstein, and Women"
+description: "Matt Walsh, Wittgenstein, and women"
 ---
 "What is A Woman?" is a 2022 documentary presented by the American conservative political commentator Matt Walsh. The premise is simple: he interviews various people, including activists, academics, your average American citizen, and going as far as traveling continents to ask a seemingly simple question: "What is a woman?". The catch is that Walsh is trapping his ideological opponents in a corner by using their own words against them. They cannot give him the dictionary definition of the word "woman" with it being "an adult human female" because that would go against their beliefs of supporting transgender people, as a trans woman is not a female but in their worldview she is still a woman. So how can that be? Did Matt Walsh really expose the "radical left" foolishness? Or is it just a play on words or a misunderstanding of human language? Walsh's question has been weaponized as a rhetorical bludgeon against transgender identities. His frustration and the documentary's central point lies in the perceived inability of giving a concise, non-circular definition for the given word. He was mostly met with answers such as "a woman is someone who identifies as a woman". The documentary frames these answers as proof of the absurdity of the progressives.
 
