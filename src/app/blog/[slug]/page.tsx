@@ -70,6 +70,16 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
       <div className="prose">
         <MDXRemote 
           source={post.content} 
+          components={{
+            img: (props) => (
+              <span className="w-80 mx-auto my-10 flex flex-col items-center block">
+                <span className="photo-frame w-full block">
+                  <img src={props.src} alt={props.alt} loading="lazy" width={640} height={1024} />
+                </span>
+                {props.alt && <span className="text-sm text-muted mt-3 italic text-center block">{props.alt}</span>}
+              </span>
+            )
+          }}
           options={{
             mdxOptions: {
               rehypePlugins: [
@@ -79,9 +89,10 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
                     ...defaultSchema,
                     tagNames: ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'a', 'img', 'em', 'strong', 'blockquote', 'ul', 'ol', 'li', 'code', 'pre', 'hr', 'br', 'span', 'div', 'figure', 'figcaption'],
                     attributes: {
+                      ...defaultSchema.attributes,
                       a: ['href', 'title', 'target', 'rel'],
                       img: ['src', 'alt', 'width', 'height', 'loading'],
-                      '*': ['className']
+                      '*': ['className', 'class']
                     },
                     strip: ['script']
                   }
